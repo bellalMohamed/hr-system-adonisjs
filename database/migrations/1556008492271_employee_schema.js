@@ -8,9 +8,8 @@ class EmployeeSchema extends Schema {
     this.create('employees', (table) => {
       table.increments();
       table.string('name', 80).notNullable();
-      table.integer('department_id').unsigned().references('id').inTable('departments')
       table.string('email', 254).notNullable().unique();
-      table.string('password', 60).notNullable();
+      table.integer('department_id').unsigned().references('id').inTable('departments')
       table.timestamps();
     })
   }
