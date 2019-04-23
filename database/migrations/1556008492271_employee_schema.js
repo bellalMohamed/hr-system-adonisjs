@@ -9,6 +9,7 @@ class EmployeeSchema extends Schema {
       table.increments();
       table.string('name', 80).notNullable();
       table.string('email', 254).notNullable().unique();
+      table.string('city', 80).notNullable();
       table.integer('department_id').unsigned().references('id').inTable('departments')
       table.timestamps();
     })

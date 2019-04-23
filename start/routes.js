@@ -18,6 +18,7 @@ Route.group(() => {
     Route.get('employees', 'EmployeeController.all');
     Route.post('employee/create', 'EmployeeController.create');
     Route.post('employee/delete', 'EmployeeController.delete');
+    Route.post('employee/update', 'EmployeeController.update');
 
 }).prefix('api/v1').middleware(['guest']);
 
