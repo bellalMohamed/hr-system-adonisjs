@@ -1,6 +1,6 @@
 'use strict'
 
-const User = use('App/Models/User');
+const Manager = use('App/Models/Manager');
 const Hash = use('Hash');
 const { validate } = use('Validator');
 
@@ -8,10 +8,14 @@ class AuthController {
 	async login ({ auth, request, response }) {
 		const validation = await validate(request.all(), {
 			email: 'required|email',
-			password: 'required'
+			password: 'required|min:6'
+		}, {
+			'password.min': "Password must be at least 6 chars",
+			'email.email': "Please Provide a valid email address",
+			'email.required': "Please Provide your email address",
 		});
 
-		if (validation.fails()) return this.wrongCredentials(response);
+		if (validation.fails()) return validation.messages();
 
 	 	const { email, password } = request.all()
 

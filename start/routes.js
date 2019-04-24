@@ -2,7 +2,6 @@
 const Route = use('Route')
 
 Route.group(() => {
-    Route.post('employees', 'EmployeeController.all');
     Route.get('departments', 'DepartmentController.all');
     Route.post('department/create', 'DepartmentController.create');
     Route.post('department/delete', 'DepartmentController.delete');
